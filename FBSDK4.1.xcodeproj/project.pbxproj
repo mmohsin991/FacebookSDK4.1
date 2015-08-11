@@ -364,6 +364,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FBSDK4.1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FBSDK4.1/FBSDK4.1-Bridging-Header.h";
@@ -381,6 +382,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FBSDK4.1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FBSDK4.1/FBSDK4.1-Bridging-Header.h";
