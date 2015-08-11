@@ -178,7 +178,7 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate, FBSDKAppInviteD
 //       UIApplication.sharedApplication().openURL(MyUrl!)
         
         var inviteContent = FBSDKAppInviteContent()
-        inviteContent.appLinkURL = NSURL(string: "https://fb.me/1482571955390929")
+        inviteContent.appLinkURL = NSURL(string: "https://fb.me/1482598655388259")
         inviteContent.appInvitePreviewImageURL = NSURL(string: "http://a2.mzstatic.com/us/r30/Purple3/v4/fd/89/0c/fd890c6d-518c-9650-4adb-af4a4b74571f/screen322x572.jpeg")
         
         FBSDKAppInviteDialog.showWithContent(inviteContent, delegate: self)

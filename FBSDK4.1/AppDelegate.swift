@@ -61,6 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
         
+        if url.scheme == "myAppInvite"{
+            println("myAppInvite")
+        }
+        
         
         
         return FBSDKApplicationDelegate.sharedInstance().application(
