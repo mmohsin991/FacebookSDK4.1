@@ -9,7 +9,7 @@
 import UIKit
 
 import FBSDKCoreKit
-//import FBSDKLoginKit
+import Bolts
 
 
 @UIApplicationMain
@@ -51,6 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        
+        var parsedUrl = BFURL(inboundURL: url, sourceApplication: sourceApplication)
+        if parsedUrl.appLinkData{
+            var targetUrl = parsedUrl.targetURL
+            
+            //process applink data
+
+        }
+        
+        
         
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,

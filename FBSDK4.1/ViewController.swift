@@ -8,11 +8,15 @@
 
 import UIKit
 import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
 
+var loginUser = MyUser()
 
-class ViewController: UIViewController,FBSDKLoginButtonDelegate {
+class ViewController: UIViewController,FBSDKLoginButtonDelegate, FBSDKAppInviteDialogDelegate {
 
     @IBOutlet weak var fbLoginView: FBSDKLoginButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +40,7 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
             
             //self.fbLoginView.readPermissions = ["public_profile","email","user_friends","publish_stream", "user_videos","read_stream"]
             
-            self.fbLoginView.readPermissions = ["public_profile","email"]
+            self.fbLoginView.readPermissions = ["public_profile","email","user_friends"]
         }
 
     }
@@ -77,6 +81,9 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
         println("User Logged Out")
 
     }
+    
+    
+    
 
     func returnUserData()
     {
@@ -91,24 +98,97 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate {
             else
             {
                 let iddsa = result.name
-
-                
                 println(result)
-                
-//                println("fetched user: \(result)")
-//                let userName : NSString = result.valueForKey("name") as! NSString
-//                println("User Name is: \(userName)")
-//                let userEmail : NSString = result.valueForKey("email") as! NSString
-//                println("User Email is: \(userEmail)")
-                let id = result["id"] as? NSString
-                println(result.identifier)
-                println(id)
-//                println(result)
-//                println(result)
+                if let id = result["id"] as? NSString{
+                    loginUser.fbID = String(id)
+                }
             }
         })
     }
     
     
+    func getFriends(){
+        if FBSDKAccessToken.currentAccessToken().hasGranted("user_friends"){
+            println("user_friends access")
+            self.friendList()
+        }
+        else{
+            
+            println("user_friends not access")
+            var loginManager = FBSDKLoginManager()
+            loginManager.logInWithReadPermissions(["user_friends"], handler: { (result, error) -> Void in
+                
+                println(result)
+                
+                if result.declinedPermissions != nil &&  result.grantedPermissions.contains("user_friends"){
+                    println("user_friends permission granted")
+                    self.friendList()
+                }
+                else{
+                    println("user_friends permission not granted")
+                }
+            })
+        }
+        
+        
+    }
+    
+    // helper func
+    func friendList(){
+        var request = FBSDKGraphRequest(graphPath:  "/\(loginUser.fbID)/invitable_friends", parameters: nil, HTTPMethod: "GET")
+
+        
+        request.startWithCompletionHandler { (req, data, error) -> Void in
+            
+            println("req: \(req)")
+            println("data: \(data)")
+            println("error: \(error)")
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    // FBSDKAppInviteDialogDelegate
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!){
+      println("complete")
+    }
+    
+
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!){
+        println("failer")
+ 
+    }
+    
+    
+    
+    
+    
+    
+    @IBAction func getFriends(sender: UIButton) {
+        
+      //  self.getFriends()
+        
+        
+        
+        var inviteContent = FBSDKAppInviteContent()
+        inviteContent.appLinkURL = NSURL(string: "https://itunes.apple.com/pk/app/pakistan-sign-language-psl/id955003505?mt=8")
+        inviteContent.appInvitePreviewImageURL = NSURL(string: "http://a2.mzstatic.com/us/r30/Purple3/v4/fd/89/0c/fd890c6d-518c-9650-4adb-af4a4b74571f/screen322x572.jpeg")
+        
+        FBSDKAppInviteDialog.showWithContent(inviteContent, delegate: self)
+        
+    }
+    
+    
 }
 
+
+
+class MyUser{
+    var fbID = ""
+    
+}

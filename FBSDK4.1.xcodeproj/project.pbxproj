@@ -15,6 +15,8 @@
 		4238BF6E1B5A7C4100805DAF /* FBSDK4_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4238BF6D1B5A7C4100805DAF /* FBSDK4_1Tests.swift */; };
 		4238BF791B5A7FF100805DAF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238BF771B5A7FF100805DAF /* FBSDKCoreKit.framework */; };
 		4238BF7A1B5A7FF100805DAF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238BF781B5A7FF100805DAF /* FBSDKLoginKit.framework */; };
+		42717AD81B790D7A00B67BF7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42717AD71B790D7A00B67BF7 /* FBSDKShareKit.framework */; };
+		42717ADA1B791AF900B67BF7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42717AD91B791AF900B67BF7 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		4238BF771B5A7FF100805DAF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4238BF781B5A7FF100805DAF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		4238BF7B1B5A800600805DAF /* FBSDK4.1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FBSDK4.1-Bridging-Header.h"; sourceTree = "<group>"; };
+		42717AD71B790D7A00B67BF7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		42717AD91B791AF900B67BF7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,8 @@
 			files = (
 				4238BF7A1B5A7FF100805DAF /* FBSDKLoginKit.framework in Frameworks */,
 				4238BF791B5A7FF100805DAF /* FBSDKCoreKit.framework in Frameworks */,
+				42717AD81B790D7A00B67BF7 /* FBSDKShareKit.framework in Frameworks */,
+				42717ADA1B791AF900B67BF7 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,8 @@
 		4238BF491B5A7C4100805DAF = {
 			isa = PBXGroup;
 			children = (
+				42717AD91B791AF900B67BF7 /* Bolts.framework */,
+				42717AD71B790D7A00B67BF7 /* FBSDKShareKit.framework */,
 				4238BF771B5A7FF100805DAF /* FBSDKCoreKit.framework */,
 				4238BF781B5A7FF100805DAF /* FBSDKLoginKit.framework */,
 				4238BF541B5A7C4100805DAF /* FBSDK4.1 */,
@@ -432,6 +440,7 @@
 				4238BF731B5A7C4100805DAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4238BF741B5A7C4100805DAF /* Build configuration list for PBXNativeTarget "FBSDK4.1Tests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +449,7 @@
 				4238BF761B5A7C4100805DAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
