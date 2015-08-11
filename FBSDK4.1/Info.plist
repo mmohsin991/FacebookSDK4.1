@@ -22,6 +22,14 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
+			<string>abc.fbsdk4</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fbsdk4:myAppInvite</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>

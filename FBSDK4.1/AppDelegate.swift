@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         var parsedUrl = BFURL(inboundURL: url, sourceApplication: sourceApplication)
-        if parsedUrl.appLinkData{
+        if (parsedUrl.appLinkData != nil){
             var targetUrl = parsedUrl.targetURL
             
             //process applink data
