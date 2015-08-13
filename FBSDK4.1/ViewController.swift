@@ -129,9 +129,35 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate, FBSDKAppInviteD
                 }
             })
         }
-        
-        
     }
+    
+    
+    func getFriendPermission(complete : (hasGranted : Bool) -> Void ){
+        if FBSDKAccessToken.currentAccessToken().hasGranted("user_friends"){
+            println("user_friends access")
+            complete(hasGranted: true)
+        }
+        else{
+            
+            println("user_friends not access")
+            var loginManager = FBSDKLoginManager()
+            loginManager.logInWithReadPermissions(["user_friends"], handler: { (result, error) -> Void in
+                
+                println(result)
+                
+                if result.declinedPermissions != nil &&  result.grantedPermissions.contains("user_friends"){
+                    println("user_friends permission granted")
+                    complete(hasGranted: true)
+                }
+                else{
+                    println("user_friends permission not granted")
+                    complete(hasGranted: false)
+                    
+                }
+            })
+        }
+    }
+    
     
     // helper func
     func friendList(){
